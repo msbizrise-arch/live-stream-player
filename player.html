@@ -1,1 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Stream Player</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- HLS.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+<body class="player-body">
+    <div class="player-container">
+        <div class="player-header">
+            <h2>🔴 LIVE</h2>
+            <div class="viewer-count">
+                <span id="viewerCount">1</span> watching
+            </div>
+        </div>
 
+        <div class="video-wrapper">
+            <video 
+                id="videoPlayer" 
+                controls 
+                autoplay 
+                playsinline
+                poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450'%3E%3Crect fill='%23000' width='800' height='450'/%3E%3Ctext fill='%23fff' font-family='Arial' font-size='24' x='50%25' y='50%25' text-anchor='middle' dy='.3em'%3ELoading Stream...%3C/text%3E%3C/svg%3E"
+            ></video>
+            
+            <div id="loadingOverlay" class="loading-overlay">
+                <div class="spinner"></div>
+                <p>Connecting to live stream...</p>
+            </div>
+
+            <div id="errorOverlay" class="error-overlay" style="display: none;">
+                <div class="error-content">
+                    <h3>⚠️ Stream Error</h3>
+                    <p id="playerError"></p>
+                    <button id="retryBtn" class="retry-btn">🔄 Retry</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="player-info">
+            <div class="stream-status">
+                <span id="status" class="status-live">● LIVE</span>
+                <span id="quality">Auto Quality</span>
+            </div>
+            <div class="stream-details">
+                <p id="streamInfo">Stream initializing...</p>
+            </div>
+        </div>
+
+        <div class="player-controls">
+            <button id="fullscreenBtn" class="control-btn">🖥️ Fullscreen</button>
+            <button id="qualityBtn" class="control-btn">⚙️ Quality</button>
+            <button id="shareBtn" class="control-btn">📤 Share</button>
+        </div>
+    </div>
+
+    <script src="js/player.js"></script>
+</body>
+</html>
